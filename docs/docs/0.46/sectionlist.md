@@ -67,15 +67,13 @@
         <span class="propType"><code>?ReactClass&lt;any&gt;</code></span> <a class="hash-link"
                                                                              href="#sectionseparatorcomponent">#</a>
     </h4>
-        <div><p>Rendered in between each section.</p></div>
+        <div><p>每个section之间的分隔组件</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="keyextractor"></a>keyExtractor: <span
             class="propType"><code>(item: Item, index: number) =&gt; string</code></span> <a class="hash-link"
                                                                                              href="#keyextractor">#</a>
     </h4>
-        <div><p>Used to extract a unique key for a given item at the specified index. Key is used for caching
-            and as the react key to track item re-ordering. The default extractor checks item.key, then
-            falls back to using the index, like react does.</p></div>
+        <div><p>默认情况下每个item都需要提供一个不重复的key属性，因此可以通过keyExtractor函数为每一个item生成一个唯一的key</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="onendreached"></a>onEndReached?: <span
             class="propType"><code>?(info: {distanceFromEnd: number}) =&gt; void</code></span> <a class="hash-link"
@@ -84,8 +82,7 @@
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="onrefresh"></a>onRefresh?: <span
             class="propType"><code>?() =&gt; void</code></span> <a class="hash-link"
                                                                    href="#onrefresh">#</a></h4>
-        <div><p>If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make
-            sure to also set the <code>refreshing</code> prop correctly.</p></div>
+        <div><p>通过函数改变refreshing从而控制刷新与否</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="onviewableitemschanged"></a>onViewableItemsChanged?:
         <span class="propType"><code>?(info: {viewableItems: Array&lt;ViewToken&gt;, changed: Array&lt;ViewToken&gt;}) =&gt; void</code></span>
@@ -95,17 +92,17 @@
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="refreshing"></a>refreshing?: <span class="propType"><code>?boolean</code></span>
         <a class="hash-link" href="#refreshing">#</a></h4>
-        <div><p>Set this true while waiting for new data from a refresh.</p></div>
+        <div><p>是否处于刷新状态</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="renderitem"></a>renderItem: <span
             class="propType"><code>(info: {item: Item, index: number}) =&gt; ?React.Element&lt;any&gt;</code></span> <a
             class="hash-link" href="#renderitem">#</a></h4>
-        <div><p>Default renderer for every item in every section. Can be over-ridden on a per-section basis.</p></div>
+        <div><p> renderItem返回Section中的每个小的的Item。可以通过函数返回Element，函数有一个info参数，参数为JSON形式，参数形式为：{item: Item, index: number}</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="rendersectionheader"></a>renderSectionHeader?: <span
             class="propType"><code>?(info: {section: SectionT}) =&gt; ?React.Element&lt;any&gt;</code></span> <a
             class="hash-link" href="#rendersectionheader">#</a></h4>
-        <div><p>Rendered at the top of each section. Sticky headers are not yet supported.</p></div>
+        <div><p>renderSectionHeader返回每个Section的标志性头部，可以通过函数返回Element，函数有一个info参数，参数为JSON形式，参数形式为：{section:{key : number, data : [ Object, Object, …] }}</p></div>
     </div>
     <div class="prop"><h4 class="propTitle"><a class="anchor" name="sections"></a>sections: <span
             class="propType"><code>Array&lt;SectionT&gt;</code></span> <a class="hash-link"
